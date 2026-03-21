@@ -7,8 +7,19 @@ export default function App() {
   const [ballScale, setBallScale] = useState(0);
   const updateScale = () => {
     const { innerWidth } = window;
-    const scale = 2500 / innerWidth;
-    setBallScale(scale);
+    let scale = 3;
+
+    switch (true) {
+      case innerWidth <= 480:
+        scale = 3;
+        break;
+      case innerWidth <= 1024:
+        scale = 2;
+        break;
+      default:
+        scale = 3;
+    }
+    scale && setBallScale(scale);
   };
 
   useEffect(() => {
