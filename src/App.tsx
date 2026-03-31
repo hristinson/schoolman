@@ -1,56 +1,32 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import redBallAnimation from "./animations/ball.json";
+import redBallAnimation from "./animations/1.json";
 
 export default function App() {
 
-  const [ballScale, setBallScale] = useState(0);
-  const updateScale = () => {
-    const { innerWidth } = window;
-    let scale = 3;
+  // const [ballScale, setBallScale] = useState(0);
+  // const updateScale = () => {
+  //   const { innerWidth } = window;
+  //   let scale = 3;
 
-    switch (true) {
-      case innerWidth <= 480:
-        scale = 3;
-        break;
-      case innerWidth <= 1024:
-        scale = 2;
-        break;
-      default:
-        scale = 3;
-    }
-    scale && setBallScale(scale);
-  };
+  //   switch (true) {
+  //     case innerWidth <= 480:
+  //       scale = 3;
+  //       break;
+  //     case innerWidth <= 1024:
+  //       scale = 2;
+  //       break;
+  //     default:
+  //       scale = 3;
+  //   }
+  //   scale && setBallScale(scale);
+  // };
 
-  useEffect(() => {
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, []);
-
-
-  const scaledAnimation = {
-    ...redBallAnimation,
-    layers: redBallAnimation.layers.map((layer) => ({
-      ...layer,
-      ks: {
-        ...layer.ks,
-        s: { ...layer.ks.s, k: layer.ks.s.k.map((v) => v * ballScale) },
-      },
-      shapes: layer.shapes?.map((shape) => {
-        if (shape.ty === "el") {
-          return shape.s ? {
-            ...shape,
-            s: {
-              ...shape.s,
-              k: shape.s.k.map((v) => v * ballScale),
-            },
-          }  : {};
-        }
-        return shape;
-      }),
-    })),
-  };
+  // useEffect(() => {
+  //   updateScale();
+  //   window.addEventListener("resize", updateScale);
+  //   return () => window.removeEventListener("resize", updateScale);
+  // }, []);
 
   return (
     <div
@@ -65,7 +41,7 @@ export default function App() {
       }}
     >
       <Lottie
-        animationData={scaledAnimation}
+        animationData={redBallAnimation}
         loop={true}
         autoplay={true}
         style={{
