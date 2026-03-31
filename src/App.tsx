@@ -1,32 +1,18 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import redBallAnimation from "./animations/1.json";
 
 export default function App() {
+  const [url, setUrl] = useState("");
+  const [animationData, setAnimationData] = useState(null);
 
-  // const [ballScale, setBallScale] = useState(0);
-  // const updateScale = () => {
-  //   const { innerWidth } = window;
-  //   let scale = 3;
+  useEffect(() => {
+    if (!url) return;
 
-  //   switch (true) {
-  //     case innerWidth <= 480:
-  //       scale = 3;
-  //       break;
-  //     case innerWidth <= 1024:
-  //       scale = 2;
-  //       break;
-  //     default:
-  //       scale = 3;
-  //   }
-  //   scale && setBallScale(scale);
-  // };
-
-  // useEffect(() => {
-  //   updateScale();
-  //   window.addEventListener("resize", updateScale);
-  //   return () => window.removeEventListener("resize", updateScale);
-  // }, []);
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Lottie load error:", err));
+  }, [url]);
 
   return (
     <div
@@ -40,15 +26,36 @@ export default function App() {
         left: 0,
       }}
     >
-      <Lottie
-        animationData={redBallAnimation}
-        loop={true}
-        autoplay={true}
+      {/* 🔹 Input */}
+      <div
         style={{
-          width: "100%",
-          height: "100%",
+          position: "absolute",
+          top: 20,
+          left: 20,
+          zIndex: 10,
         }}
-      />
+      >
+        <input
+          type="text"
+          placeholder="Встав URL JSON..."
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          style={{ width: "300px", padding: "8px" }}
+        />
+      </div>
+
+      {/* 🔹 Lottie */}
+      {animationData && (
+        <Lottie
+          animationData={animationData}
+          loop={true}
+          autoplay={true}
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      )}
     </div>
   );
 }
