@@ -26,6 +26,17 @@ export default function App() {
         left: 0,
       }}
     >
+      <div
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          paddingLeft: "26px",
+        }}
+      >
+        <a href="https://catbox.moe/" target="_blank">
+          https://catbox.moe/
+        </a>
+      </div>
       {/* 🔹 Input */}
       <div
         style={{
