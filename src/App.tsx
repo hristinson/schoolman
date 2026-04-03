@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
 
+import redBallAnimation from "./animations/data.json";
+import InfiniteVerticalText from "./scroll"
 export default function App() {
   const [url, setUrl] = useState("");
   const [animationData, setAnimationData] = useState(null);
@@ -19,24 +21,14 @@ export default function App() {
       style={{
         width: "100vw",
         height: "100vh",
-        backgroundColor: "black",
+        backgroundColor: "#0000FF",
         overflow: "hidden",
         position: "fixed",
         top: 0,
         left: 0,
       }}
     >
-      <div
-        style={{
-          backgroundColor: "black",
-          color: "white",
-          paddingLeft: "26px",
-        }}
-      >
-        <a href="https://catbox.moe/" target="_blank">
-          https://catbox.moe/
-        </a>
-      </div>
+      
       {/* 🔹 Input */}
       <div
         style={{
@@ -67,6 +59,16 @@ export default function App() {
           }}
         />
       )}
+      <InfiniteVerticalText />
+      <Lottie
+        animationData={redBallAnimation}
+        loop={true}
+        autoplay={true}
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      />
     </div>
   );
 }
