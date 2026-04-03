@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+.container {
+  position: fixed;       /* поверх всього */
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 100%;
+  overflow: hidden;
+  font-family: monospace;
+  background: transparent; /* прозорий фон */
+  z-index: 9999;           /* поверх всього */
+  pointer-events: none;    /* не блокує кліки */
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  animation: scrollUp 26s linear infinite;
+  opacity: 0.75;           /* напівпрозорий текст */
+}
+
+.item {
+  padding: 8px;
+  text-align: left;
+  color: #000;
+  font-size: 14px;
+  letter-spacing: 2px;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
