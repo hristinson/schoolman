@@ -1,0 +1,45 @@
+.animatedText {
+  display: flex;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: monospace;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: -20%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  background: transparent;
+}
+
+.animatedLetter {
+  display: inline-block;
+  animation: bounce 10s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.8);
+  }
+}
+.animatedLetter {
+  display: inline-block;
+  animation: bounce 10s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.8);
+  }
+}

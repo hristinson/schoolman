@@ -1,67 +1,18 @@
-import { useState, useEffect } from "react";
 import Lottie from "lottie-react";
+import headAnimation from "./animations/headAnimation.json";
+import buttonAnimation from "./animations/buttonAnimation.json";
+import ScrollUpcontainer from "./scrollUpcontainer";
+import ScrollDowncontainer from "./scrollDowncontainer";
+import Schoolman from "./components/schoolman";
 
-import redBallAnimation from "./animations/data.json";
-import InfiniteVerticalText from "./scroll"
 export default function App() {
-  const [url, setUrl] = useState("");
-  const [animationData, setAnimationData] = useState(null);
-
-  useEffect(() => {
-    if (!url) return;
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setAnimationData(data))
-      .catch((err) => console.error("Lottie load error:", err));
-  }, [url]);
-
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "#0000FF",
-        overflow: "hidden",
-        position: "fixed",
-        top: 0,
-        left: 0,
-      }}
-    >
-      
-      {/* 🔹 Input */}
-      <div
-        style={{
-          position: "absolute",
-          top: 20,
-          left: 20,
-          zIndex: 10,
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Встав URL JSON..."
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          style={{ width: "300px", padding: "8px" }}
-        />
-      </div>
+    <div className="appContainer">
+      <Schoolman />
+      <ScrollUpcontainer />
 
-      {/* 🔹 Lottie */}
-      {animationData && (
-        <Lottie
-          animationData={animationData}
-          loop={true}
-          autoplay={true}
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-        />
-      )}
-      <InfiniteVerticalText />
       <Lottie
-        animationData={redBallAnimation}
+        animationData={headAnimation}
         loop={true}
         autoplay={true}
         style={{
@@ -69,6 +20,21 @@ export default function App() {
           height: "100%",
         }}
       />
+      <div className="buttonContainer">
+        <Lottie
+          onClick={() => {
+            alert("PRESS BUTTON");
+          }}
+          animationData={buttonAnimation}
+          loop={true}
+          autoplay={true}
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      </div>
+      <ScrollDowncontainer />
     </div>
   );
 }
