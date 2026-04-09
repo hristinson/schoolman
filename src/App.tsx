@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import headAnimation from "./animations/headAnimation.json";
+import headAnimation from "./animations/head_new.json";
 import buttonAnimation from "./animations/buttonAnimation.json";
 import ScrollUpcontainer from "./scrollUpcontainer";
 import ScrollDowncontainer from "./scrollDowncontainer";
