@@ -10,16 +10,14 @@ export default function App() {
     <div className="appContainer">
       <Schoolman />
       <ScrollUpcontainer />
-
-      <Lottie
-        animationData={headAnimation}
-        loop={true}
-        autoplay={true}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      />
+      <div className="headWrapper">
+        <Lottie
+          animationData={headAnimation}
+          loop={true}
+          autoplay={true}
+          className="headMain"
+        />
+      </div>
       <div className="buttonContainer">
         <Lottie
           onClick={() => {

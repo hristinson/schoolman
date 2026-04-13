@@ -1,3 +1,17 @@
+.headWrapper {
+  width: 100%;
+  top: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.headMain {
+  width: 1920px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+}
 .buttonContainer {
   position: absolute;
   top: 75%;
@@ -7,7 +21,7 @@
   height: 300px;
   z-index: 10;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 9990;
 }
 
 .appContainer {
@@ -97,5 +111,23 @@
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .itemUp {
+    font-size: 20px;
+  }
+  .itemDown {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .itemUp {
+    font-size: 10px;
+  }
+  .itemDown {
+    font-size: 8px;
   }
 }
