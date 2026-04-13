@@ -103,6 +103,13 @@
   font-size: 20px;
 }
 
+.linksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px;
+}
+
 @keyframes scrollUp {
   0% {
     transform: translateY(0);
