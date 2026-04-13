@@ -29,10 +29,7 @@ export default function App() {
             animationData={buttonAnimation}
             loop={true}
             autoplay={true}
-            style={{
-              width: "100%",
-              height: "100%",
-            }}
+            className="button"
           />
         </div>
         <ScrollDowncontainer />
