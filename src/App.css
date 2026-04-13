@@ -23,6 +23,7 @@
   width: 400px;
   height: 300px;
   z-index: 101;
+  cursor: pointer;
 }
 
 .appContainer {
