@@ -10,7 +10,7 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 9999;
+  z-index: 100;
 }
 .buttonContainer {
   position: absolute;
@@ -19,9 +19,8 @@
   transform: translate(-50%, -50%);
   width: 400px;
   height: 300px;
-  z-index: 10;
   cursor: pointer;
-  z-index: 9990;
+  z-index: 101;
 }
 
 .appContainer {
@@ -42,7 +41,7 @@
   width: 200px;
   overflow: hidden;
   background: transparent;
-  z-index: 9000;
+  z-index: 90;
   pointer-events: none;
 }
 
@@ -54,7 +53,7 @@
   overflow: hidden;
   font-family: monospace;
   background: transparent;
-  z-index: 9000;
+  z-index: 90;
   pointer-events: none;
 }
 
@@ -120,6 +119,10 @@
   }
   .itemDown {
     font-size: 12px;
+  }
+  .buttonContainer {
+    top: 90%;
+    width: 300px;
   }
 }
 
