@@ -6,7 +6,7 @@ import { ReactComponent as Shareemail } from "../../images/shareemail.svg";
 import { ReactComponent as Sharefb } from "../../images/sharefacebook.svg";
 import { ReactComponent as Linkedin } from "../../images/linkedin.svg";
 
-export default function Contacts(): any {
+export default function Contacts() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const startX = useRef<number>(0);
 
@@ -14,12 +14,13 @@ export default function Contacts(): any {
     const element = containerRef.current;
     if (!element) return;
 
-    const handlePointerDown = (e: PointerEvent): void => {
-      startX.current = e.clientX;
+    const handleTouchStart = (e: TouchEvent): void => {
+      startX.current = e.touches[0].clientX;
     };
 
-    const handlePointerUp = (e: PointerEvent): void => {
-      const diff = startX.current - e.clientX;
+    const handleTouchEnd = (e: TouchEvent): void => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX.current - endX;
 
       if (diff > 50) {
         alert("свайп вліво");
@@ -30,14 +31,12 @@ export default function Contacts(): any {
       }
     };
 
-    element.addEventListener("pointerdown", handlePointerDown);
-    element.addEventListener("pointerup", handlePointerUp);
-    element.addEventListener('touchstart', (e) => {alert(e)});
-
+    element.addEventListener("touchstart", handleTouchStart);
+    element.addEventListener("touchend", handleTouchEnd);
 
     return () => {
-      element.removeEventListener("pointerdown", handlePointerDown);
-      element.removeEventListener("pointerup", handlePointerUp);
+      element.removeEventListener("touchstart", handleTouchStart);
+      element.removeEventListener("touchend", handleTouchEnd);
     };
   }, []);
 
