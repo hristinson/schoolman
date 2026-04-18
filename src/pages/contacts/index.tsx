@@ -32,6 +32,8 @@ export default function Contacts(): any {
 
     element.addEventListener("pointerdown", handlePointerDown);
     element.addEventListener("pointerup", handlePointerUp);
+    element.addEventListener('touchstart', (e) => {alert(e)});
+
 
     return () => {
       element.removeEventListener("pointerdown", handlePointerDown);
