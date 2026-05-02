@@ -6,11 +6,21 @@ import ScrollDowncontainer from "../../scrollDowncontainer";
 import Schoolman from "../../components/schoolman";
 import packageJson from "../../../package.json";
 import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { useSwipe } from "../../hooks/useSwipe";
 
 export default function App() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useSwipe(containerRef, {
+    onSwipeRight: () => {
+      navigate("/contacts");
+    },
+  });
+
   const navigate = useNavigate();
   return (
-    <>
+    <div ref={containerRef}>
       <div className="version">version {packageJson.version}</div>
       <div className="appContainer">
         <Schoolman />
@@ -36,6 +46,6 @@ export default function App() {
         </div>
         <ScrollDowncontainer />
       </div>
-    </>
+    </div>
   );
 }
