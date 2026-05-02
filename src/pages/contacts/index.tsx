@@ -5,40 +5,18 @@ import { ReactComponent as Instagram } from "../../images/instagram.svg";
 import { ReactComponent as Shareemail } from "../../images/shareemail.svg";
 import { ReactComponent as Sharefb } from "../../images/sharefacebook.svg";
 import { ReactComponent as Linkedin } from "../../images/linkedin.svg";
+import { useSwipe } from "../../hooks/useSwipe";
+import { useNavigate } from "react-router-dom";
 
 export default function Contacts() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const startX = useRef<number>(0);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const element = containerRef.current;
-    if (!element) return;
-
-    const handleTouchStart = (e: TouchEvent): void => {
-      startX.current = e.touches[0].clientX;
-    };
-
-    const handleTouchEnd = (e: TouchEvent): void => {
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX.current - endX;
-
-      if (diff > 50) {
-        alert("свайп вліво");
-        // nextSlide();
-      } else if (diff < -50) {
-        alert("свайп вправо");
-        // prevSlide();
-      }
-    };
-
-    element.addEventListener("touchstart", handleTouchStart);
-    element.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      element.removeEventListener("touchstart", handleTouchStart);
-      element.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, []);
+  useSwipe(containerRef, {
+    onSwipeLeft: () => {
+      navigate("/");
+    },
+  });
 
   return (
     <div className="appContainer" ref={containerRef}>
