@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import ScrollDowncontainer from "../../scrollDowncontainer";
 import { ReactComponent as Ximage } from "../../images/x.svg";
 import { ReactComponent as Instagram } from "../../images/instagram.svg";
