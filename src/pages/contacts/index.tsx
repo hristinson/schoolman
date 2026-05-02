@@ -14,6 +14,9 @@ export default function Contacts() {
 
   useSwipe(containerRef, {
     onSwipeLeft: () => {
+      navigate("/program");
+    },
+    onSwipeRight: () => {
       navigate("/");
     },
   });
