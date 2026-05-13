@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import ScrollDowncontainer from "../../scrollDowncontainer";
-import { ReactComponent as Ximage } from "../../images/x.svg";
-import { ReactComponent as Instagram } from "../../images/instagram.svg";
-import { ReactComponent as Shareemail } from "../../images/shareemail.svg";
-import { ReactComponent as Sharefb } from "../../images/sharefacebook.svg";
-import { ReactComponent as Linkedin } from "../../images/linkedin.svg";
+// import ScrollDowncontainer from "../../scrollDowncontainer";
+// import { ReactComponent as Ximage } from "../../images/x.svg";
+// import { ReactComponent as Instagram } from "../../images/instagram.svg";
+// import { ReactComponent as Shareemail } from "../../images/shareemail.svg";
+// import { ReactComponent as Sharefb } from "../../images/sharefacebook.svg";
+// import { ReactComponent as Linkedin } from "../../images/linkedin.svg";
 import { useSwipe } from "../../hooks/useSwipe";
 import { useNavigate } from "react-router-dom";
 
@@ -78,17 +78,17 @@ export default function Contacts() {
             </div>`;
   return <div dangerouslySetInnerHTML={{ __html: html }} />;
 
-  return (
-    <div className="appContainer" ref={containerRef}>
-      <div className="linksContainer">
-        <Ximage />
-        <Instagram />
-        <Shareemail />
-        <Sharefb />
-        <Linkedin />
-      </div>
+  // return (
+  //   <div className="appContainer" ref={containerRef}>
+  //     <div className="linksContainer">
+  //       <Ximage />
+  //       <Instagram />
+  //       <Shareemail />
+  //       <Sharefb />
+  //       <Linkedin />
+  //     </div>
 
-      <ScrollDowncontainer />
-    </div>
-  );
+  //     <ScrollDowncontainer />
+  //   </div>
+  // );
 }
